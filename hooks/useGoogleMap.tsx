@@ -2,9 +2,9 @@ import { useWhyDidYouUpdate } from "@chakra-ui/react";
 import { Loader, LoaderOptions } from "@googlemaps/js-api-loader";
 import { useAsync } from "react-use";
 
-if (!process.env.NEXT_PUBLIC_API_KEY) throw new Error();
+if (!process.env.NEXT_PUBLIC_GOOGLE_API_KEY) throw new Error();
 const loaderOptions: LoaderOptions = {
-  apiKey: process.env.NEXT_PUBLIC_API_KEY,
+  apiKey: process.env.NEXT_PUBLIC_GOOGLE_API_KEY,
   version: "weekly",
   language: "ja",
   region: "JP",
