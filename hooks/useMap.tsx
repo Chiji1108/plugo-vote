@@ -1,15 +1,26 @@
 import { useMemo } from "react";
 import { useWhyDidYouUpdate } from "@chakra-ui/react";
 
-const center: google.maps.LatLngLiteral = {
-  lat: 35.6762,
-  lng: 139.6503,
+const TOKYO_BOUNDS: google.maps.LatLngBoundsLiteral = {
+  north: 35.8,
+  south: 35.57,
+  west: 139.6,
+  east: 139.92,
+};
+
+const TOKYO: google.maps.LatLngLiteral = {
+  lat: 35.68,
+  lng: 139.77,
 };
 
 const mapOptions: google.maps.MapOptions = {
-  center,
-  zoom: 10,
+  center: TOKYO,
+  zoom: 11,
   disableDefaultUI: true,
+  restriction: {
+    latLngBounds: TOKYO_BOUNDS,
+    strictBounds: true,
+  },
 };
 
 type useMapProps = {

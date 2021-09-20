@@ -20,8 +20,7 @@ export const useGoogleMap = () => {
     value: googleMap,
   } = useAsync(async () => {
     const loader = new Loader(loaderOptions);
-    const google = await loader.load();
-    return google;
+    return await loader.load();
   }, []);
   return { loading, error, googleMap };
 };

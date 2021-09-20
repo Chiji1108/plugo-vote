@@ -85,7 +85,7 @@ export const useMapReducer = ({ map, placesService }: useMapReducerProps) => {
 
   // set placeResult when placeId is changed
   useEffect(() => {
-    if (!placesService || !state.placeId) return;
+    if (!state.placeId) return;
     placesService.getDetails(
       { placeId: state.placeId },
       (
@@ -97,7 +97,7 @@ export const useMapReducer = ({ map, placesService }: useMapReducerProps) => {
         }
       }
     );
-  }, [state.placeId, placesService]);
+  }, [state.placeId]);
 
   useEffect(() => {
     if (!state.placeResult || !placePinAndPanTo) return;

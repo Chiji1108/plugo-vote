@@ -1,4 +1,4 @@
-import { memo, useEffect, useRef, useState } from "react";
+import { memo, useEffect, useMemo, useRef, useState } from "react";
 import {
   Box,
   Input,
@@ -10,6 +10,8 @@ import {
 import { SearchIcon } from "@chakra-ui/icons";
 import { Map } from ".";
 
+//TODO: 消すボタン追加
+
 type GoogleMapProps = {
   googleMap: typeof google;
 };
@@ -18,6 +20,10 @@ export const GoogleMap = memo(({ googleMap }: GoogleMapProps) => {
   useWhyDidYouUpdate("GoogleMap", { googleMap });
   const mapContainerRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
+  // const mapContainerEl = useMemo(() => {
+  //   if (!mapContainerRef.current) return;
+  //   return mapContainerRef.current;
+  // }, [mapContainerRef]);
   const [mapContainerEl, setMapContainerEl] = useState<HTMLDivElement>();
   const [inputEl, setInputEl] = useState<HTMLInputElement>();
 
@@ -41,7 +47,7 @@ export const GoogleMap = memo(({ googleMap }: GoogleMapProps) => {
     <>
       <Box w="100%" h="100vh" pos="relative">
         <Box w="100%" h="100%" ref={mapContainerRef} />
-        <Box m="2" pos="absolute" top="0" left="0" right="0" zIndex={99999}>
+        <Box m="2" pos="absolute" top="0" left="0" right="0" zIndex="banner">
           <InputGroup>
             <InputLeftElement pointerEvents="none">
               <SearchIcon color="gray.300" />

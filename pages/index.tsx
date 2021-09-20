@@ -2,14 +2,35 @@ import type { NextPage } from "next";
 import Head from "next/head";
 import {
   Text,
-  Link,
   Box,
   Center,
   Image,
   Heading,
   Badge,
   Stack,
+  Button,
 } from "@chakra-ui/react";
+
+import queryString from "query-string";
+
+import NextImage from "next/image";
+import Link from "next/link";
+
+/*TODO: Topページに設置するマーカー
+
+- みんなのマーカー (cache可能)
+- みんなのマーカー & 自分強調表示 (一部cache可能だが、リクエスト違うからお金かかりそう？)
+
+*/
+const stringified = queryString.stringifyUrl({
+  url: "https://maps.googleapis.com/maps/api/staticmap",
+  query: {
+    center: "35.68,139.77",
+    zoom: 11,
+    size: "600x400",
+    key: "AIzaSyDKrpVSwOPOReivNxthUGpkgMUQKVhv_F0",
+  },
+});
 
 const Home: NextPage = () => {
   return (
@@ -20,7 +41,7 @@ const Home: NextPage = () => {
         <meta name="description" content="Plugo Vote" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Box maxW="xl">
+      <Box maxW="xl" mx="auto">
         <Stack p={2} direction="row">
           <Heading
             as="h1"
@@ -54,8 +75,40 @@ const Home: NextPage = () => {
           </Text>
         </Box>
         <Box mx="4" mt="12">
-          <Heading fontSize="xl">都心</Heading>
-          <Box bg="gray.200" h="200px" w="100%" borderRadius="md" my="3"></Box>
+          <Heading fontSize="xl">
+            東京都内<Badge ml="2">closed beta</Badge>
+          </Heading>
+          <Link href="/map" passHref>
+            <Box
+              bg="gray.200"
+              h="200px"
+              w="100%"
+              borderRadius="md"
+              overflow="hidden"
+              my="3"
+              pos="relative"
+            >
+              <NextImage
+                src="https://maps.googleapis.com/maps/api/staticmap?center=35.68%2C139.77&key=AIzaSyDKrpVSwOPOReivNxthUGpkgMUQKVhv_F0&size=600x400&zoom=11&signature=zVP9F6-Xo-1nzCGXEb9UIGIuCrk="
+                alt="map"
+                width={600}
+                height={400}
+                objectFit="cover"
+                objectPosition="center center"
+              />
+
+              <Button
+                colorScheme="pink"
+                pos="absolute"
+                m="3"
+                bottom="0"
+                right="0"
+                bgGradient="linear(to-l, #7928CA, #FF0080)"
+              >
+                投票する
+              </Button>
+            </Box>
+          </Link>
         </Box>
         <Box>{/* Twitter */}</Box>
       </Box>
