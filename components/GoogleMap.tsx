@@ -5,12 +5,11 @@ import {
   InputGroup,
   InputLeftElement,
   useWhyDidYouUpdate,
+  InputRightElement,
 } from "@chakra-ui/react";
 
-import { SearchIcon } from "@chakra-ui/icons";
+import { CloseIcon, SearchIcon } from "@chakra-ui/icons";
 import { Map } from ".";
-
-//TODO: 消すボタン追加
 
 type GoogleMapProps = {
   googleMap: typeof google;
@@ -43,6 +42,8 @@ export const GoogleMap = memo(({ googleMap }: GoogleMapProps) => {
     };
   }, [inputRef]);
 
+  const [query, setQuery] = useState("");
+
   return (
     <>
       <Box w="100%" h="100vh" pos="relative">
@@ -57,20 +58,19 @@ export const GoogleMap = memo(({ googleMap }: GoogleMapProps) => {
               bg="white"
               overflow="hidden"
               shadow="md"
-              // value={query}
-              // onChange={(e) => setQuery(e.target.value)}
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
             />
-            {/* {inputRef.current?.value && (
-            <InputRightElement
-              pointerEvents="none"
-              // onClick={() => setQuery(undefined)}
-              onClick={() => {
-                if (inputRef.current) inputRef.current.reset();
-              }}
-            >
-              <CloseIcon color="gray.300" />
-            </InputRightElement>
-          )} */}
+            {query && (
+              <InputRightElement
+                onClick={() => {
+                  setQuery("");
+                  inputRef.current?.focus();
+                }}
+              >
+                <CloseIcon color="gray.300" />
+              </InputRightElement>
+            )}
           </InputGroup>
         </Box>
       </Box>

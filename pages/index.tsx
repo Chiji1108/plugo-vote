@@ -41,7 +41,7 @@ const Home: NextPage = () => {
         <meta name="description" content="Plugo Vote" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Box maxW="xl" mx="auto">
+      <Box maxW="md" mx="auto">
         <Stack p={2} direction="row">
           <Heading
             as="h1"
@@ -51,7 +51,7 @@ const Home: NextPage = () => {
             bgClip="text"
           >
             Plugo Vote
-            <Badge ml="2">closed beta</Badge>
+            <Badge ml="2">development</Badge>
           </Heading>
         </Stack>
         <Box pt={28} px={4} pb={24} pos="relative" overflow="hidden">
@@ -76,7 +76,8 @@ const Home: NextPage = () => {
         </Box>
         <Box mx="4" mt="12">
           <Heading fontSize="xl">
-            東京都内<Badge ml="2">closed beta</Badge>
+            東京都内
+            {/* <Badge ml="2">closed beta</Badge> */}
           </Heading>
           <Link href="/map" passHref>
             <Box
@@ -88,14 +89,7 @@ const Home: NextPage = () => {
               my="3"
               pos="relative"
             >
-              <NextImage
-                src="https://maps.googleapis.com/maps/api/staticmap?center=35.68%2C139.77&key=AIzaSyDKrpVSwOPOReivNxthUGpkgMUQKVhv_F0&size=600x400&zoom=11&signature=zVP9F6-Xo-1nzCGXEb9UIGIuCrk="
-                alt="map"
-                width={600}
-                height={400}
-                objectFit="cover"
-                objectPosition="center center"
-              />
+              <Center h="full">static map with markers</Center>
 
               <Button
                 colorScheme="pink"
@@ -110,7 +104,16 @@ const Home: NextPage = () => {
             </Box>
           </Link>
         </Box>
-        <Box>{/* Twitter */}</Box>
+        <Box height="400px" bgColor="pink.100" mt="12">
+          {/* Twitter */}
+          Twitterタイムライン
+        </Box>
+        <Box height="50px" bgColor="blue.100" mt="6">
+          share
+        </Box>
+        <Box height="80px" bgColor="green.100" mt="6">
+          footter (プライバシーポリシー, Powered by Plugo)
+        </Box>
       </Box>
     </Box>
   );

@@ -40,19 +40,19 @@ export const ConfirmModal = ({
         <AlertDialogHeader />
         <AlertDialogCloseButton />
         <AlertDialogBody>
-          <Stack>
-            <Box>
+          <Stack textAlign="center">
+            <Box mt="2">
               <Text
-                fontSize="lg"
-                fontWeight="bold"
+                fontSize="xl"
+                fontWeight="black"
                 overflow="auto"
                 whiteSpace="nowrap"
               >
                 {placeResult.name}
               </Text>
-              <Text fontSize="sm">に投票します</Text>
+              <Text>に投票します</Text>
             </Box>
-            <Text fontSize="sm">※投票は一日一回しかできません</Text>
+            <Text>※投票は一日一回しかできません</Text>
           </Stack>
         </AlertDialogBody>
         <AlertDialogFooter>

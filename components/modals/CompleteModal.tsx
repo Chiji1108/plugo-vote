@@ -50,6 +50,7 @@ export const CompleteModal = memo(({ isOpen, onClose }: CompleteModalProps) => {
           pos="relative"
           borderRadius="md"
         >
+          <Center height="full">OGP (static map with markers)</Center>
           <Stack
             direction="row"
             bottom="0"

@@ -1,5 +1,6 @@
 import type { AppProps } from "next/app";
 import { ChakraProvider, extendTheme } from "@chakra-ui/react";
+import "../styles/googlemap.css";
 // import "lightgallery/css/lightgallery.css";
 
 const theme = extendTheme({
