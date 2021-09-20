@@ -76,7 +76,7 @@ const Home: NextPage = () => {
         </Box>
         <Box mx="4" mt="12">
           <Heading fontSize="xl">
-            東京周辺
+            東京
             <Badge ml="2">beta</Badge>
           </Heading>
           <Link href="/map" passHref>
