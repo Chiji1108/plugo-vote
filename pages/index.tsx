@@ -51,7 +51,7 @@ const Home: NextPage = () => {
             bgClip="text"
           >
             Plugo Vote
-            <Badge ml="2">development</Badge>
+            <Badge ml="2">dev</Badge>
           </Heading>
         </Stack>
         <Box pt={28} px={4} pb={24} pos="relative" overflow="hidden">
@@ -76,8 +76,8 @@ const Home: NextPage = () => {
         </Box>
         <Box mx="4" mt="12">
           <Heading fontSize="xl">
-            東京都内
-            {/* <Badge ml="2">closed beta</Badge> */}
+            東京周辺
+            <Badge ml="2">beta</Badge>
           </Heading>
           <Link href="/map" passHref>
             <Box
