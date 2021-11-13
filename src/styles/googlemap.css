@@ -1,0 +1,12 @@
+.pac-container {
+  box-shadow: var(--chakra-shadows-md);
+  border-radius: var(--chakra-radii-md);
+  z-index: 50;
+}
+/* .pac-icon {
+  color: var(--chakra-colors-gray-200);
+} */
+
+/* .pac-item-query {
+  font-family: "Noto Sans JP";
+} */
